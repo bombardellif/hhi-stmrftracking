@@ -1,0 +1,7 @@
+Cython
+opencv-python
+Pillow>=3.4
+cairocffi>=0.7
+numpy>=1.13
+scipy>=0.18
+matplotlib>=1.5

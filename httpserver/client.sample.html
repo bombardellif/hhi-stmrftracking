@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Call the API every 40 ms
+    var tid = setInterval(function() {
+        var xmlhttp = new XMLHttpRequest()
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                document.getElementsByTagName('body')[0].innerHTML += this.responseText + '<br />'
+            }
+        }
+        xmlhttp.responseType = 'text'
+        xmlhttp.open('GET', 'http://localhost:8080/api?mode=getlist', true)
+        xmlhttp.send()
+    }, 40)
+
+    // Do it for 5 secs
+    setTimeout(function() {
+        clearInterval(tid)
+    }, 5000)
+}, false)
+</script>
+</head>
+<body>
+</body>
+</html>
